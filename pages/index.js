@@ -6,10 +6,15 @@ import Sidebar from "@/components/Sidebar";
 import PostsFeed from "@/components/PostsFeed";
 import Trending from "@/components/Trending";
 import BottomBanner from "@/components/BottomBanner";
+import { useSelector } from "react-redux";
+import CommentModal from "@/components/modals/CommentModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+
+  const username = useSelector(state => state.user.username)
+  console.log(username)
   return (
     <div>
       <div
@@ -23,7 +28,9 @@ export default function Home() {
         <Trending />
       </div>
 
-      <BottomBanner />
+      <CommentModal />
+
+     {!username && <BottomBanner />}
     </div>
   );
 }
