@@ -64,6 +64,7 @@ export default function TweetInput() {
               <LocationMarkerIcon className="h-[22px] text-[#1d9bf0]" />
             </div>
           </div>
+          
           <button
           onClick={sendTweet}
           disabled={!text}
