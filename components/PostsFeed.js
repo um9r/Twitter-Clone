@@ -3,22 +3,19 @@ import Tweet from "./Tweet";
 import TweetInput from "./TweetInput";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 import { db } from "@/firebase";
+import Link from "next/link";
 
 export default function PostsFeed() {
-
-  const [tweets, setTweets] = useState([])
+  const [tweets, setTweets] = useState([]);
 
   useEffect(() => {
-
-    const q = query(collection(db, "posts"), orderBy("timestamp", "desc"))
+    const q = query(collection(db, "posts"), orderBy("timestamp", "desc"));
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      setTweets(snapshot.docs)
+      setTweets(snapshot.docs);
+    });
 
-    })
-
-    return unsubscribe
-  }, [])
-
+    return unsubscribe;
+  }, []);
 
   return (
     <div
@@ -35,10 +32,11 @@ export default function PostsFeed() {
       </div>
       <TweetInput />
 
-      {tweets.map(tweet => {
-        return <Tweet key={tweet.id} id={tweet.id} data={tweet.data()}/>
+      {tweets.map((tweet) => {
+        return <Tweet key={tweet.id} id={tweet.id} data={tweet.data()} />;
       })}
-      
+
+      <Tweet />
     </div>
   );
 }
