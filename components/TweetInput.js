@@ -1,4 +1,5 @@
 import { db } from "@/firebase";
+import { openLoginModal } from "@/redux/modalSlice";
 import {
   CalendarIcon,
   ChartBarIcon,
@@ -8,14 +9,24 @@ import {
 } from "@heroicons/react/outline";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function TweetInput() {
   const user = useSelector((state) => state.user);
 
   const [text, setText] = useState("");
+  const [loading, setLoading] = useState(false)
+
+  const dispatch = useDispatch()
 
   async function sendTweet() {
+
+    if (!user.username) {
+      dispatch(openLoginModal())
+      return
+    }
+
+    setLoading(true)
     const docRef = await addDoc(collection(db, "posts"), {
       username: user.username,
       name: user.name,
@@ -27,15 +38,19 @@ export default function TweetInput() {
     });
 
     setText("")
+    setLoading(false)
   }
 
   return (
     <div className="flex space-x-3 p-3 border-b border-gray-700">
       <img
         className="w-11 h-11 rounded-full object-cover"
-        src={user.photoUrl}
+        src={user.photoUrl || "/assets/twitter-logo.png"}
       />
-      <div className="w-full">
+
+      {loading && <h1 className="text-2xl text-gray-500">Uploading post...</h1>}
+      
+      {!loading && (<div className="w-full">
         <textarea
           placeholder="What's on your mind?"
           className="bg-transparent resize-none outline-none w-full
@@ -73,7 +88,7 @@ export default function TweetInput() {
             Tweet
           </button>
         </div>
-      </div>
+      </div>)}
     </div>
   );
 }

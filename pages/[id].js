@@ -19,7 +19,7 @@ export async function getServerSideProps(context) {
     name: data.name,
     photoUrl: data.photoUrl,
     text: data.tweet,
-    comments: data.comment || null,
+    comments: data.comments || null,
     timestamp: JSON.stringify(data.timestamp.toDate()),
   };
 
@@ -95,7 +95,6 @@ export default function CommentsPage({ tweetData }) {
               Tweet
             </button>
           </div>
-
             {tweetData.comments?.map(comment => (
                 <div className=" border-b border-gray-700">
             <div className="flex space-x-3 p-3 border-gray-700">
@@ -107,10 +106,9 @@ export default function CommentsPage({ tweetData }) {
                 <div className="text-gray-500 flex space-x-2 items-center mb-1">
                   <h1 className="text-white font-bold">{comment.name}</h1>
                   <span>@{comment.username}</span>
-                  <div className="w-1 h-1 bg-gray-500 rounded-full"></div>
                 </div>
 
-                <span className="text-2xl">{comment.text}</span>
+                <span>{comment.comment}</span>
               </div>
             </div>
           </div>

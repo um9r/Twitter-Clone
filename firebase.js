@@ -7,12 +7,12 @@ import {getFirestore} from "firebase/firestore"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDxZ3wYjABKKjVhzbDBVJQzUZEV7b3YHqo",
-  authDomain: "twitter-clone-b0561.firebaseapp.com",
-  projectId: "twitter-clone-b0561",
-  storageBucket: "twitter-clone-b0561.firebasestorage.app",
-  messagingSenderId: "397255307741",
-  appId: "1:397255307741:web:ac54cf476d7caca5e60634"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
 // Initialize Firebase

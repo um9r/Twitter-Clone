@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/outline";
 import Modal from "@mui/material/Modal";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -23,6 +24,8 @@ export default function CommentModal() {
 
   const [comment, setComment] = useState("")
 
+  const router = useRouter()
+
   async function sendComment() {
     const docRef = doc(db, "posts", tweetDetails.id)
     const commentDetails = {
@@ -34,6 +37,9 @@ export default function CommentModal() {
     await updateDoc(docRef, {
       comments: arrayUnion(commentDetails)
     })
+
+    dispatch(closeCommentModal())
+    router.push("/" + tweetDetails.id)
   }
 
   return (
