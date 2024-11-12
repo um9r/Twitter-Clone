@@ -54,7 +54,7 @@ export default function Sidebar() {
         hover:bg-white hover:bg-opacity-10 rounded-full cursor-pointer
         absolute xl:p-3 flex justify-center items-center space-x-2">
         <img className="w-10 h-10 rounded-full object-cover
-        " src={user.photoUrl || "/assets/kylie.png"} />
+        " src={user.photoUrl || "/assets/twitter-logo.png"} />
         <div className="hidden xl:inline">
           <h1 className="font-bold whitespace-nowrap">{user.name}</h1>
           <h1 className="text-gray-500">@{user.username}</h1>
