@@ -24,7 +24,7 @@ export default function PostsFeed() {
         "
     >
       <div
-        className="px-3 py-2 text-lg sm:text-xl font-bold
+        className="px-3 bg-black py-2 text-lg sm:text-xl font-bold
         border-b border-gray-700 sticky top-0 z-50
         "
       >
