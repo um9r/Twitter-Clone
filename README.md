@@ -1,38 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1>Twitter Clone 🐦</h1>
+Twitter Clone is a modern social media platform built to replicate the core functionalities of Twitter. It enables users to tweet, engage with posts, and interact in real-time while maintaining a sleek and responsive design.
 
-## Getting Started
+<h3>Features</h3>
 
-First, run the development server:
+Post Tweets: Create and share thoughts in real-time.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+User Authentication: Secure signup and login using Firebase Auth.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Real-Time Functionality: Updates and interactions are synced instantly with Firebase Firestore.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Interactive Features: Comment on tweets and engage with likes.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Responsive Design: Ensures seamless usage on both mobile and desktop devices.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<h3>Tech Stack</h3>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<h4>Frontend:</h4>
 
-## Learn More
+Next.js
 
-To learn more about Next.js, take a look at the following resources:
+React
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Tailwind CSS
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<h4>State Management:</h4>
 
-## Deploy on Vercel
+Redux Toolkit
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<h4>Backend:</h4>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Firebase (Firestore, Authentication)
+
+<h3>Usage</h3>
+
+Post Tweets: Share your thoughts and ideas with the world.
+
+Interact: Like and comment on tweets to engage with others.
+
+Experience Real-Time: Updates happen seamlessly without refreshing.
